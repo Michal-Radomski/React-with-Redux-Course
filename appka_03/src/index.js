@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import SeasonDisplay from "./SeasonDisplay";
+import SeasonDisplay from "./SeasonDisplay";
+import Spinner from "./Spinner";
 
 if (module.hot) {
   module.hot.accept();
@@ -22,13 +23,18 @@ if (module.hot) {
 
 // -Create a React Class Component
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    //+ THIS IS THE ONLY TIME we do direct assignment of to this.state
-    this.state = {lat: null, errorMessage: ""};
+  // constructor(props) {      //- This is done automatically
+  //   super(props);
+  //   //+ THIS IS THE ONLY TIME we do direct assignment of to this.state
+  //   this.state = {lat: null, errorMessage: ""};
+  // }
+  //+ THIS IS THE ONLY TIME -> alternative method -> outside Constructor
+  state = {lat: null, errorMessage: ""};
+  componentDidMount() {
+    console.log("Component was rendered");
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
-        // console.log(position);
+        console.log(position);
         // we called setState!!!
         this.setState({lat: position.coords.latitude});
       },
@@ -41,18 +47,31 @@ class App extends React.Component {
       }
     );
   }
+  componentDidUpdate() {
+    console.log("Component was updated");
+  }
 
-  // React says we have to define render function!!
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
     if (!this.state.errorMessage && this.state.lat) {
-      return <div>Latitude: {this.state.lat}</div>;
+      // return <div>Latitude: {this.state.lat}</div>;
+      return <SeasonDisplay lat={this.state.lat} />;
     }
     if (!this.state.errorMessage && !this.state.lat) {
-      return <div>Loading...</div>;
+      return <Spinner message="Please accept location request" />;
     }
+  }
+
+  // React Docs says we have to define render function!!
+  render() {
+    return (
+      // No classes: border red;
+      <div className="border red" style={{border: "red 5px solid"}}>
+        {this.renderContent()}
+      </div>
+    );
   }
 }
 
