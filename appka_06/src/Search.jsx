@@ -4,8 +4,36 @@ import axios from "axios";
 const Search = () => {
   const [term, setTerm] = useState("");
   // React.useEffect(() => console.log(term));
+  //   const [debouncedTerm, setDebouncedTerm] = useState(term);
   const [results, setResults] = useState([]);
-  // console.log(results);
+  //   // console.log(results);
+
+  //   useEffect(() => {
+  //     const timerID = setTimeout(() => {
+  //       setDebouncedTerm(term);
+  //     }, 1000);
+  //     return () => {
+  //       clearTimeout(timerID);
+  //     };
+  //   }, [term]);
+
+  //   useEffect(() => {
+  //     const searchWiki = async () => {
+  //       const {data} = await axios.get("https://en.wikipedia.org/w/api.php", {
+  //         params: {
+  //           action: "query",
+  //           list: "search",
+  //           origin: "*",
+  //           format: "json",
+  //           srsearch: debouncedTerm,
+  //         },
+  //       });
+  //       setResults(data.query.search);
+  //     };
+  //     searchWiki();
+  //   }, [debouncedTerm]);
+
+  //+ useEffect - wersja 1 (wersja 2 powyżej składa się z 2x useEffect)
   useEffect(() => {
     //- Wariant 1 - rekomendowana przez React
     const searchWiki = async () => {
@@ -34,7 +62,6 @@ const Search = () => {
         clearTimeout(timeOutID);
       };
     }
-
     //- Wariant 2
     // (async () => {
     //   await axios.get("https://api.example.com");
@@ -43,7 +70,7 @@ const Search = () => {
     // axios.get("https://api.example.com").then((response) => {
     //   console.log(response.data);
     // });
-  }, [term]); //+ Działenie ESlint'a - tu można to zignorować
+  }, [term]); //+ Działanie ESlint'a - tu można to zignorować
 
   const renderedResults = results.map((result) => {
     return (
