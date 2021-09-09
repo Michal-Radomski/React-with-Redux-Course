@@ -4,46 +4,44 @@ import youtube from "../APIs/youtube";
 import VideoList from "./VideoList";
 import VideoDetail from "./VideoDetail";
 
-class App extends React.Component {
-  state = {videos: [], selectedVideo: null};
+const App = () => {
+  const [videos, setVideos] = React.useState([]);
+  const [selectedVideo, setSelectedVideo] = React.useState(null);
 
-  componentDidMount() {
-    this.onTermSubmit("Shakira");
-  }
+  React.useEffect(() => {
+    onTermSubmit("Shakira");
+  }, []);
 
-  onTermSubmit = async (term) => {
-    // console.log(term);
+  const onTermSubmit = async (term) => {
     const response = await youtube.get("/search", {
       params: {
         q: term,
       },
     });
-    // console.log(response.data.items);
-    this.setState({videos: response.data.items, selectedVideo: response.data.items[0]});
+
+    setVideos(response.data.items);
+    setSelectedVideo(response.data.items[0]);
   };
 
-  onVideoSelect = (video) => {
-    // console.log("From the App: ", video);
-    this.setState({selectedVideo: video});
+  const onVideoSelect = (video) => {
+    setSelectedVideo(video);
   };
 
-  render() {
-    return (
-      <div className="ui container">
-        <SearchBar onFormSubmit={this.onTermSubmit} />I have {this.state.videos.length} videos.
-        <div className="ui grid">
-          <div className="ui row">
-            <div className="eleven wide column">
-              <VideoDetail video={this.state.selectedVideo} />
-            </div>
-            <div className="five wide column">
-              <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
-            </div>
+  return (
+    <div className="ui container">
+      <SearchBar onFormSubmit={onTermSubmit} />I have {videos.length} videos.
+      <div className="ui grid">
+        <div className="ui row">
+          <div className="eleven wide column">
+            <VideoDetail video={selectedVideo} />
+          </div>
+          <div className="five wide column">
+            <VideoList onVideoSelect={onVideoSelect} videos={videos} />
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;
