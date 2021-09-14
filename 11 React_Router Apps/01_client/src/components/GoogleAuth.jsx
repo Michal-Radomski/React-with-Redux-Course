@@ -1,6 +1,8 @@
 //+ Tajny Klucz Klienta Google: Q-Nwy5GH7GUH9fszzDVelAg8
 
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import {signIn, signOut} from "./actions";
 
 class GoogleAuth extends Component {
   state = {isSignedIn: null};
@@ -14,16 +16,43 @@ class GoogleAuth extends Component {
         .then(() => {
           this.auth = window.gapi.auth2.getAuthInstance();
           this.setState({isSignedIn: this.auth.isSignedIn.get()});
+          this.auth.isSignedIn.listen(this.onAuthChange);
         });
     });
   }
+
+  onAuthChange = (isSignedIn) => {
+    if (isSignedIn) {
+      this.props.signIn();
+    } else {
+      this.props.signOut();
+    }
+  };
+
+  onSignInClick = () => {
+    this.auth.signIn();
+  };
+  onSignOutClick = () => {
+    this.auth.signOut();
+  };
+
   renderAuthButton() {
     if (this.state.isSignedIn === null) {
-      return <div>I Don't Know If We Are Signed In</div>;
+      return null;
     } else if (this.state.isSignedIn) {
-      return <div>I am Signed In</div>;
+      return (
+        <button onClick={this.onSignOutClick} className="ui red google button">
+          <i className="google icon" />
+          Log Out
+        </button>
+      );
     } else {
-      return <div>I'm Not Signed In</div>;
+      return (
+        <button onClick={this.onSignInClick} className="ui blue google button">
+          <i className="google icon" />
+          LogIn with Google
+        </button>
+      );
     }
   }
 
@@ -32,4 +61,4 @@ class GoogleAuth extends Component {
   }
 }
 
-export default GoogleAuth;
+export default connect(null, {signIn, signOut})(GoogleAuth);
