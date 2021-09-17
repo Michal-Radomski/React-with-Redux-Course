@@ -22,10 +22,15 @@
       "id": 4
     },
     {
-      "title": "Test5",
-      "description": "Desc5 - nawigacja programowa",
+      "title": "Test5 - changed with patch",
+      "description": "Desc5 - nawigacja programowa - changed with patch",
       "userId": "108503714858828885136",
       "id": 5
+    },
+    {
+      "title": "Test6 - changed",
+      "description": "Description6 - changed",
+      "id": 6
     }
   ]
 }
