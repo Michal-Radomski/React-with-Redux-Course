@@ -1,0 +1,14 @@
+{
+  "name": "03_rtmpserver",
+  "version": "1.0.0",
+  "description": "RTMP server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Mich_Rad <michalra@op.pl>",
+  "license": "MIT",
+  "dependencies": {
+    "node-media-server": "^2.3.8"
+  }
+}
