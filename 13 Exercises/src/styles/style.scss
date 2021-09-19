@@ -1,0 +1,18 @@
+div.style1 {
+  background-color: lightblue;
+  &:hover {
+    background-color: lightpink;
+  }
+  input {
+    background-color: lightyellow;
+    color: darkgreen;
+    border: 2px solid darkmagenta;
+    &:hover {
+      border: 2px solid grey;
+    }
+  }
+}
+
+.header h1 {
+  color: magenta;
+}
