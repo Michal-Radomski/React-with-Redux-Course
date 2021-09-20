@@ -1,4 +1,5 @@
 import React from "react";
+import {API_KEY} from "../config";
 
 class SearchBar extends React.Component {
   // -Podejście Stare
@@ -22,6 +23,7 @@ class SearchBar extends React.Component {
   onInputChange = (event) => {
     // console.log(event.target.value);
     // console.log(this.state.term);
+    console.log(API_KEY);
     this.setState({term: event.target.value});
   };
 
