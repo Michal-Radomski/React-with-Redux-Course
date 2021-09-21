@@ -1,5 +1,7 @@
 import React from "react";
-import {API_KEY} from "../config";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {fetchWeather} from "../actions/index";
 
 class SearchBar extends React.Component {
   // -Podejście Stare
@@ -7,23 +9,32 @@ class SearchBar extends React.Component {
   //   super(props);
   //   this.state = {term: ""};
   //   this.onInputChange = this.onInputChange.bind(this);
+  //   this.onFormSubmit = this.onFormSubmit.bind(this);
   // }
-  // onInputChange(event) {
+
+  //   onInputChange(event) {
   //   console.log(event.target.value);
   //   this.setState({term: event.target.value});
   // }
+  //   onFormSubmit(event) {
+  //   event.preventDefault();
+  //   -We need to fetch weatherData
+  //   this.props.fetchWeather(this.state.term);
+  //   this.setState({term: ""});
+  // };
 
-  onFormSubmit(event) {
+  onFormSubmit = (event) => {
     event.preventDefault();
     // We need to fetch weatherData
-  }
+    this.props.fetchWeather(this.state.term);
+    this.setState({term: ""});
+  };
 
   // -Podejście Nowe
   state = {term: ""};
   onInputChange = (event) => {
     // console.log(event.target.value);
     // console.log(this.state.term);
-    console.log(API_KEY);
     this.setState({term: event.target.value});
   };
 
@@ -46,4 +57,8 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchWeather}, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
