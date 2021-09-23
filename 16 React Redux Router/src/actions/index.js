@@ -33,6 +33,7 @@ export function fetchPost(id) {
 }
 
 export function deletePost(id, callback) {
+  // eslint-disable-next-line no-unused-vars
   const request = axios.delete(`${rootURL}/posts/${id}${apiKEY}`).then(() => callback());
   return {
     type: DELETE_POST,
