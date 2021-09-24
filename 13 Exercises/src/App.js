@@ -5,6 +5,8 @@ import GoogleMap from "./components/GoogleMap";
 import Dashboard from "./components/Dashboard";
 import HOC from "./components/HOC";
 import CompoundComponent from "./components/CompoundComponent";
+import PropDrilling from "./components/PropDrilling";
+import UseContext from "./components/UseContext";
 
 class App extends React.Component {
   state = {lat: 54.5, lng: 18.5};
@@ -26,6 +28,11 @@ class App extends React.Component {
         <HOC />
         {/* //- Compound Components In React */}
         <CompoundComponent />
+        {/* //- Prop Drilling In React */}
+        <PropDrilling />
+        <hr />
+        {/* //- useContext Hook In React */}
+        <UseContext />
       </>
     );
   }
