@@ -4,6 +4,7 @@ import FunctionalComponent from "./components/FunctionalComponent";
 import GoogleMap from "./components/GoogleMap";
 import Dashboard from "./components/Dashboard";
 import HOC from "./components/HOC";
+import CompoundComponent from "./components/CompoundComponent";
 
 class App extends React.Component {
   state = {lat: 54.5, lng: 18.5};
@@ -24,6 +25,7 @@ class App extends React.Component {
         {/* //- Higher-Order Components In React */}
         <HOC />
         {/* //- Compound Components In React */}
+        <CompoundComponent />
       </>
     );
   }
