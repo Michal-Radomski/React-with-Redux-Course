@@ -8,6 +8,9 @@ import CompoundComponent from "./components/CompoundComponent";
 import PropDrilling from "./components/PropDrilling";
 import UseContext from "./components/UseContext";
 
+import LeftSidebar from "./components/ReactComposition/LeftSidebar";
+import RightSidebar from "./components/ReactComposition/RightSidebar";
+
 class App extends React.Component {
   state = {lat: 54.5, lng: 18.5};
 
@@ -33,6 +36,13 @@ class App extends React.Component {
         <hr />
         {/* //- useContext Hook In React */}
         <UseContext />
+        <hr />
+        {/* //- Pattern: React Composition */}
+        <div>
+          <h1>Patten: React Composition</h1>
+          <LeftSidebar />
+          <RightSidebar />
+        </div>
       </>
     );
   }
