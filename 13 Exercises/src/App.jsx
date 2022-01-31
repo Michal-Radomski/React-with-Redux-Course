@@ -11,6 +11,9 @@ import UseContext from "./components/UseContext";
 import LeftSidebar from "./components/ReactComposition/LeftSidebar";
 import RightSidebar from "./components/ReactComposition/RightSidebar";
 
+import ShouldComponentUpdate from "./components/Pure/ShouldComponentUpdate";
+import PureComponent from "./components/Pure/PureComponent";
+
 class App extends React.Component {
   state = {lat: 54.5, lng: 18.5};
 
@@ -42,6 +45,10 @@ class App extends React.Component {
           <h1>Patten: React Composition</h1>
           <LeftSidebar />
           <RightSidebar />
+        </div>
+        <div>
+          <ShouldComponentUpdate />
+          <PureComponent />
         </div>
       </>
     );
