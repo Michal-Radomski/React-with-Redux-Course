@@ -14,6 +14,8 @@ import RightSidebar from "./components/ReactComposition/RightSidebar";
 import ShouldComponentUpdate from "./components/Pure/ShouldComponentUpdate";
 import PureComponent from "./components/Pure/PureComponent";
 
+import MainComponent from "./components/LiftingUp/MainComponent";
+
 class App extends React.Component {
   state = {lat: 54.5, lng: 18.5};
 
@@ -49,6 +51,9 @@ class App extends React.Component {
         <div>
           <ShouldComponentUpdate />
           <PureComponent />
+        </div>
+        <div style={{border: "2px solid black"}}>
+          <MainComponent />
         </div>
       </>
     );
