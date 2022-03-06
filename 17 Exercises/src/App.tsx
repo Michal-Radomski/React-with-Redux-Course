@@ -1,12 +1,12 @@
 import React from "react";
 
 import "./App.scss";
-import Accordion from "./accordion/Accordion";
+import Main from "./accordion/Main";
 
 function App() {
   return (
     <React.Fragment>
-      <Accordion />
+      <Main />
     </React.Fragment>
   );
 }
