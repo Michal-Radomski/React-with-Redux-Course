@@ -1,8 +1,10 @@
+//* Tutorial: https://blog.logrocket.com/how-to-build-a-react-accordion-menu-from-scratch
+
 import React from "react";
 
-import "./Main.scss";
+import "./Main2.scss";
 
-const Main = () => {
+const Main2 = () => {
   return (
     <React.Fragment>
       <section className="accordion2">
@@ -12,4 +14,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Main2;
