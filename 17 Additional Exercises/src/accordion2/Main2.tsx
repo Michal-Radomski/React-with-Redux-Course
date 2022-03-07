@@ -3,12 +3,17 @@
 import React from "react";
 
 import "./Main2.scss";
+import Header from "./Header";
+import Accordion from "./Accordion";
 
 const Main2 = () => {
   return (
     <React.Fragment>
       <section className="accordion2">
-        <div className="container">Header and Accordion here</div>;
+        <div className="container">
+          <Header />
+          <Accordion />
+        </div>
       </section>
     </React.Fragment>
   );
