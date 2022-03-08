@@ -13,6 +13,8 @@ function App() {
       <Main2 />
       <hr />
       <Main3 />
+      <br />
+      <hr />
     </React.Fragment>
   );
 }
