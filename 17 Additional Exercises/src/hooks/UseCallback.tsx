@@ -40,10 +40,12 @@ const UseCallback = (): JSX.Element => {
   functionsCounter.add(incrementOtherCounter);
 
   console.log(functionsCounter.size);
-  console.log("functionsCounter:", functionsCounter);
+  // console.log("functionsCounter:", functionsCounter);
 
   return (
     <>
+      UseCallback Hook:
+      <br />
       Count: {count}
       <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
