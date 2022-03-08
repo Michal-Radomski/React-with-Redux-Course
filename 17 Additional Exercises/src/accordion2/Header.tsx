@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <React.Fragment>
       <h1 className="heading">FAQ help section</h1>

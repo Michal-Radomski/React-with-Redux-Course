@@ -60,9 +60,14 @@ class Accordion extends React.Component<{allowMultipleOpen: boolean}, {openSecti
     return (
       <div style={{border: "2px solid #008f68"}}>
         {children?.map((child: any) => (
-          <AccordionSection isOpen={!!openSections[child.props.label]} label={child.props.label} onClick={onClick}>
+          <AccordionSection
+            isOpen={!!openSections[child.props.label]}
+            label={child.props.label}
+            onClick={onClick}
+            key={child.props.label}
+          >
             {child.props.children}
-            {/* {console.log(child, children)} */}
+            {/* {console.log("child:", child)} */}
           </AccordionSection>
         ))}
       </div>

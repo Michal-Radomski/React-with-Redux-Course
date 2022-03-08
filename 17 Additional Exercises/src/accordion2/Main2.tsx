@@ -6,7 +6,7 @@ import "./Main2.scss";
 import Header from "./Header";
 import Accordion from "./Accordion";
 
-const Main2 = () => {
+const Main2 = (): JSX.Element => {
   return (
     <React.Fragment>
       <section className="accordion2">
