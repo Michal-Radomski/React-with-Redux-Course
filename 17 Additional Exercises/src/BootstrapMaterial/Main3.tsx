@@ -1,14 +1,37 @@
+//* Examples from: https://mdbootstrap.com
+
 import React from "react";
-import {MDBRipple, MDBBtn, MDBTypography, MDBSpinner} from "mdb-react-ui-kit";
+import {
+  MDBRipple,
+  MDBBtn,
+  MDBTypography,
+  MDBSpinner,
+  MDBBtnGroup,
+  MDBCard,
+  MDBCardTitle,
+  MDBCardBody,
+  MDBCardText,
+  MDBCardImage,
+  MDBTooltip,
+} from "mdb-react-ui-kit";
 
 import Collapse from "./Collapse";
+import Modal from "./Modal";
 
 const Main3 = (): JSX.Element => {
   return (
     <React.Fragment>
       <MDBTypography tag="h1" className="display-2 pb-3 mb-3">
-        Bootstrap Material Elements
+        Bootstrap Material Elements (Bootstrap 5)
       </MDBTypography>
+
+      <p className="mb-0">
+        Hover the link to see the
+        <MDBTooltip tag="a" wrapperProps={{href: "#"}} title="Hi! I'm a tooltip!">
+          {" "}
+          tooltip
+        </MDBTooltip>
+      </p>
 
       <MDBRipple
         className="bg-image hover-overlay shadow-1-strong rounded"
@@ -21,8 +44,11 @@ const Main3 = (): JSX.Element => {
           <div className="mask" style={{backgroundColor: "rgba(18, 102, 241, 0.5)"}}></div>
         </a>
       </MDBRipple>
-
-      <Collapse />
+      <div>
+        <Collapse />
+        <hr />
+        <Modal />
+      </div>
 
       <hr />
       <MDBBtn>Button MDB</MDBBtn>
@@ -69,6 +95,35 @@ const Main3 = (): JSX.Element => {
           Link
         </MDBBtn>
       </div>
+      <br />
+      <div>
+        <MDBBtnGroup shadow="0" aria-label="Basic example">
+          <MDBBtn color="secondary" outline>
+            Left
+          </MDBBtn>
+          <MDBBtn color="secondary" outline>
+            Middle
+          </MDBBtn>
+          <MDBBtn color="secondary" outline>
+            Right
+          </MDBBtn>
+        </MDBBtnGroup>
+      </div>
+      <br />
+
+      <MDBCard style={{maxWidth: "22rem"}}>
+        <MDBRipple rippleColor="light" rippleTag="div" className="bg-image hover-overlay">
+          <MDBCardImage src="https://mdbootstrap.com/img/new/standard/nature/111.webp" fluid alt="..." />
+          <div className="mask" style={{backgroundColor: "rgba(251, 251, 251, 0.15)", cursor: "pointer"}}></div>
+        </MDBRipple>
+        <MDBCardBody>
+          <MDBCardTitle>Card title</MDBCardTitle>
+          <MDBCardText>
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+          </MDBCardText>
+          <MDBBtn href="#">Button</MDBBtn>
+        </MDBCardBody>
+      </MDBCard>
     </React.Fragment>
   );
 };
