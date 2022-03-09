@@ -9,12 +9,12 @@ import Main3 from "./BootstrapMaterial/Main3";
 import UseCallback from "./hooks/UseCallback";
 import UseMemo from "./hooks/UseMemo";
 
-import Main4 from "./MapBox/Main4";
+import MapBox from "./MapBox/MapBox";
 
 function App() {
   return (
     <React.Fragment>
-      <Main4 />
+      <MapBox />
       <hr />
       <div>
         <UseCallback />
