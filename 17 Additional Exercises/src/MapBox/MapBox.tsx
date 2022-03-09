@@ -34,8 +34,8 @@ const MapBox = (): JSX.Element => {
   React.useEffect(() => {
     if (!map.current) return; // wait for map to initialize
     map.current.on("move", () => {
-      setLng(map.current.getCenter().lng.toFixed(4));
-      setLat(map.current.getCenter().lat.toFixed(4));
+      setLng(map.current.getCenter().lng.toFixed(1));
+      setLat(map.current.getCenter().lat.toFixed(1));
       setZoom(map.current.getZoom().toFixed(2));
     });
   });
